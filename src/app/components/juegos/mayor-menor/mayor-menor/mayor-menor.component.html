@@ -1,0 +1,32 @@
+<div class="container g-0 mt-5">
+    <section class="row g-0 mb-3">
+        <article class="col-12 align-self-center text-center">
+            <h2 class="colorPrimaryAmarillo">Mayor - Menor<br></h2>
+            <h4>Primero la primer carta del mazo <br></h4>
+            <h4>Despues adivina si la siguiente sera mayor o menor <br></h4>
+            <h5>Gana un punto por cada carta que adivines!</h5>
+        </article>
+    </section>
+    <section class="row g-0 mt-2">
+        <ng-container *ngIf="carta.numero">
+            <ngb-alert *ngIf="resultado; else perdio" class="alertaJuego" [dismissible]="false">
+                <strong>Ganaste!</strong> Ganas un punto, si quieres volver a jugar elije otra opcion y una carta.
+            </ngb-alert>
+            <ng-template #perdio>
+                <ngb-alert class="alertaJuego" [dismissible]="false">
+                    <strong>Perdiste!</strong> Pierdes un punto, si quieres volver a jugar elije otra opcion y una
+                    carta.
+                </ngb-alert>
+            </ng-template>
+        </ng-container>
+        <div class="d-flex justify-content-around">
+            <app-mazo (pickeoCarta)="setUltimaCarta($event)" [elijioOpcion]="elijioOpcion" />
+            <ng-container *ngIf="carta.numero > 0">
+                <app-controles (elijioOpcion)="setOpcion($event)" />
+            </ng-container>
+            <app-carta [carta]="carta" />
+        </div>
+    </section>
+</div>
+
+<app-chat *ngIf="usuariosService.usuarioIngresado" />

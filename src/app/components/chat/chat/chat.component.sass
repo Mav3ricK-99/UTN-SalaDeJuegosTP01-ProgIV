@@ -1,0 +1,47 @@
+.offcanvas-header, .offcanvas-body
+    background-color: #FCFCFC
+
+.offcanvas-title
+    color: rgb(23, 25, 26)
+
+#abrirChat
+    position: absolute
+    z-index: 99
+    width: 100%
+    height: 50px
+    max-height: 50px
+    color: white
+    background-color: #218df0
+    text-transform: uppercase
+    font-size: 20px
+    letter-spacing: .05rem
+    padding: .5rem 0 .5rem 0
+    outline: none
+    border: none
+    bottom: 0
+    left: 0
+    transition: all 0.3s ease-in-out
+
+    &:after
+        content: ''
+        position: absolute
+        bottom: 48px
+        left: 49.3%
+        z-index: -1
+        width: 28px
+        height: 20px
+        background-color: #218df0
+        border: none
+        transform: rotate(225deg) translate(-14px,-7px)
+
+.chats-container
+    padding-right: 1rem
+    width: 60%
+    overflow-y: scroll
+
+.inputMensaje
+    margin-top: 1rem
+    width: 100%
+
+.chatForm
+    width: 60%

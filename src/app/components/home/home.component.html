@@ -1,0 +1,11 @@
+<div class="container g-0 mt-5">
+    <section class="row g-0">
+        <article class="col-12 align-self-center text-center">
+            <h1>Te damos la bienvenida a nuestra <span id="spanSalaJuegos">Sala de juegos!</span><br></h1>
+            <h3>¡Aqui presentamos los juegos disponibles para hoy!</h3>
+        </article>
+    </section>
+    <app-listado-juegos />
+
+    <app-chat *ngIf="usuariosService.usuarioIngresado" />
+</div>

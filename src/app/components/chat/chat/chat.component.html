@@ -1,0 +1,17 @@
+<ng-template #content let-offcanvas>
+    <div class="offcanvas-body d-flex align-items-center flex-column">
+        <div class="chats-container d-flex justify-content-center flex-column">
+            <ng-container *ngIf="(chats$ | async)?.length">
+                <div *ngFor="let chat of chats$ | async">
+                    <app-mensaje [chat]="chat" />
+                </div>
+            </ng-container>
+        </div>
+        <form class="chatForm" [formGroup]="chatForm" (ngSubmit)="enviarMensaje()">
+            <input formControlName="mensaje" class="inputMensaje form-control form-control-sm" type="text"
+                placeholder="Envia un mensaje">
+        </form>
+    </div>
+</ng-template>
+
+<button id="abrirChat" (click)="abrirChat(content)">Chatear</button>

@@ -1,0 +1,66 @@
+<form class="form" id="form" [formGroup]="formularioRegistro" (ngSubmit)="registrarse()">
+    <div class="field email">
+        <div class="icon"></div>
+        <input class="input" formControlName="email" id="email" type="email" placeholder="Correo electronico" />
+    </div>
+    <div *ngIf="formularioRegistro.get('email')?.invalid && (formularioRegistro.get('email')?.dirty || formularioRegistro.get('email')?.touched)"
+        class="alert alert-danger py-1 mt-1">
+        <div *ngIf="formularioRegistro.get('email')?.errors?.['required']">
+            El correo electronico es requerido.
+        </div>
+        <div *ngIf="formularioRegistro.get('email')?.errors?.['email']">
+            El correo electronico debe ser valido.
+        </div>
+        <div *ngIf="formularioRegistro.get('email')?.errors?.['invalid']">
+            El correo electronico ya se encuentra registrado.
+        </div>
+    </div>
+    <div class="field email">
+        <div class="icon"></div>
+        <input class="input" formControlName="nombreUsuario" id="nombreUsuario" type="text" placeholder="Mav3ricK989" />
+    </div>
+    <div *ngIf="formularioRegistro.get('nombreUsuario')?.invalid && (formularioRegistro.get('email')?.dirty || formularioRegistro.get('email')?.touched)"
+        class="alert alert-danger py-1 mt-1">
+        <div *ngIf="formularioRegistro.get('nombreUsuario')?.errors?.['required']">
+            El nombre de usuario es requerido.
+        </div>
+    </div>
+    <div class="field password">
+        <div class="icon"></div>
+        <input class="input" formControlName="password" id="password" type="password" placeholder="Contraseña" />
+    </div>
+    <div *ngIf="formularioRegistro.get('password')?.invalid && (formularioRegistro.get('password')?.dirty || formularioRegistro.get('password')?.touched)"
+        class="alert alert-danger py-1 mt-1">
+        <div *ngIf="formularioRegistro.get('password')?.errors?.['required']">
+            El campo contraseña es requerido.
+        </div>
+        <div *ngIf="formularioRegistro.get('password')?.errors?.['minlength']">
+            El campo contraseña debe contener al menos 6 digitos.
+        </div>
+    </div>
+    <div class="field password">
+        <div class="icon"></div>
+        <input class="input" formControlName="repetirPassword" id="repetirPassword" type="password"
+            placeholder="Repita la contraseña" />
+    </div>
+    <div *ngIf="formularioRegistro.get('repetirPassword')?.invalid && (formularioRegistro.get('repetirPassword')?.dirty || formularioRegistro.get('repetirPassword')?.touched)"
+        class="alert alert-danger py-1 mt-1">
+        <div *ngIf="formularioRegistro.get('repetirPassword')?.errors?.['required']">
+            El campo contraseña es requerido.
+        </div>
+        <div *ngIf="formularioRegistro.get('repetirPassword')?.errors?.['minlength']">
+            El campo contraseña debe contener al menos 6 digitos.
+        </div>
+    </div>
+    <div *ngIf="formularioRegistro.errors?.['noCoinciden'] && (formularioRegistro.get('repetirPassword')?.dirty || formularioRegistro.get('repetirPassword')?.touched)"
+        class="alert alert-danger py-1 mt-1">
+        <div>
+            Las contraseñas deben coincidir!.
+        </div>
+    </div>
+    <button type="submit" class="button" id="submit" [disabled]="!formularioRegistro.valid">INGRESAR<div
+            class="side-top-bottom"></div>
+        <div class="side-left-right"></div>
+    </button><small>Registrandote vas a poder acceder a mas juegos, poder compartir tu progreso, conversar con otros
+        jugadores y mas!</small>
+</form>

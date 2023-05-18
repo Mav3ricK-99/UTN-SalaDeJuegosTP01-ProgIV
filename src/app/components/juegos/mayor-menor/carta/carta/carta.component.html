@@ -1,0 +1,8 @@
+<div class="cartaContainer">
+    <ng-container *ngIf="carta.numero > 0; else elejiCarta">
+        <img href="#" [src]="carta.imagen" height="559" alt="Mazo de cartas" loading="lazy" />
+    </ng-container>
+    <ng-template #elejiCarta>
+        <h4 class="text-center">Para continuar, eleji una carta del mazo</h4>
+    </ng-template>
+</div>

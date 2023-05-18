@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "laboiv-federicogutierrez"
+  },
+  "targets": {
+    "laboiv-federicogutierrez": {
+      "hosting": {
+        "SalaDeJuegos": [
+          "laboiv-federicogutierrez"
+        ]
+      }
+    }
+  }
+}

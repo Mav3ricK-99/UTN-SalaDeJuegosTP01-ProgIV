@@ -1,0 +1,10 @@
+<div class="chat d-flex flex-column" [class]="esAutor() ? 'derecha' : 'izquierda'">
+    <div class="emisor">
+        <h5 *ngIf="chat.getUsuario()">{{chat.getUsuario().getNombreUsuario()}}
+            <span class="fechaMensaje"> - {{chat.getFechaMensaje() | date: 'd/M/yy, h:mm a'}}</span>
+        </h5>
+    </div>
+    <div class="mensaje text-wrap" [class]="esAutor() ? 'autor' : 'jugador'">
+        <p>{{chat.getMensaje()}}</p>
+    </div>
+</div>

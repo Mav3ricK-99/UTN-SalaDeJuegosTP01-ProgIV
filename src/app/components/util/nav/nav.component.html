@@ -1,0 +1,41 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarButtonsExample" aria-controls="navbarButtonsExample" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarButtonsExample">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item d-flex">
+                        <div class="cajaImagenInicio">
+                            <img href="#" [src]="'assets/favicon.png'" height="61" alt="Sala de juegos"
+                                loading="lazy" />
+                        </div>
+                        <a class="nav-link botonInicio" routerLink="/">Inicio</a>
+                    </li>
+                </ul>
+
+                <ng-container *ngIf="!usuarioService.hayUsuarioIngresado(); else bienvenida">
+                    <div class="d-flex align-items-center">
+                        <button type="button" routerLink="/login" class="botonControlSesion px-3 me-2">
+                            Ingresar
+                        </button>
+                        <button type="button" routerLink="/registro" class="btn botonRegistro me-3">
+                            Registrate!
+                        </button>
+                        <a class="btn btn-dark px-2" href="link" role="button"><fa-icon [icon]="faGithub"></fa-icon></a>
+                    </div>
+                </ng-container>
+                <ng-template #bienvenida>
+                    <span class="me-2"> Bienvenido devuelta {{usuarioService.usuarioIngresado?.getNombreUsuario()}}</span>
+                    <button type="button" (click)="usuarioService.cerrarSesionUsuario()"   class="botonControlSesion px-3 me-2">
+                        Cerrar sesion
+                    </button>
+                </ng-template>
+            </div>
+        </div>
+    </nav>
+</header>
