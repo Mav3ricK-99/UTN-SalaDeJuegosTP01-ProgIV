@@ -1,0 +1,24 @@
+<div class="bg-image container-fluid g-0 pt-5" [ngStyle]="{'background-image': 'url(./assets/bg-wallpaper.png)'}">
+    <section class="row g-0 mb-3">
+        <article class="col-12 align-self-center text-center">
+            <h2 class="colorPrimaryAmarillo">El Ahorcado<br></h2>
+            <h4>Elije las letras y forma la palabra! <br></h4>
+            <h4>Tienes como maximo 8 intentos fallidos <br></h4>
+        </article>
+    </section>
+    <section class="juegoSection row g-0 mt-2 mb-2">
+        <article class="d-flex justify-content-around">
+            <div class="palabra align-self-end">
+                {{palabraSeleccionadaPresentada}}
+            </div>
+            <img class="imgAhorcado" [src]="sourceImgAhorcado" />
+        </article>
+    </section>
+    <section class="letras row g-0">
+        <article class="d-flex justify-content-around letras">
+            <app-letra *ngFor="let letra of letrasAhorcado; index as i" (letraElegida)="probarLetra($event)"
+                [letra]="letra" #letrasCmptes/>
+        </article>
+    </section>
+    <app-chat *ngIf="usuariosService.usuarioIngresado" />
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import { UsuarioService } from 'src/app/services/Usuario/usuario.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { UsuarioService } from 'src/app/services/Usuario/usuario.service';
 })
 export class NavComponent {
   faGithub = faGithub;
+  faMessage = faMessage
 
   constructor(public usuarioService: UsuarioService) { }
 }

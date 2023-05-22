@@ -10,6 +10,10 @@ export class ListadoJuegosComponent {
   juegos: any = [{
     nombre: 'Mayor - Menor',
     ruta: '/mayor-menor',
-    imagenPortada: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/ACE_CAR.JPG/800px-ACE_CAR.JPG',
+    imagenPortada: './assets/cartasPoker.png',
+  },{
+    nombre: 'El Ahorcado',
+    ruta: '/ahorcado',
+    imagenPortada: './assets/ahorcado.png',
   },]
 }

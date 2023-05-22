@@ -1,35 +1,40 @@
-<form class="form" id="form" [formGroup]="formularioLogin" (ngSubmit)="ingresar()">
-    <div class="field email">
-        <div class="icon"></div>
-        <input class="input" formControlName="email" id="email" type="email" placeholder="Correo electronico" />
-    </div>
-    <div *ngIf="formularioLogin.get('email')?.invalid && (formularioLogin.get('email')?.dirty || formularioLogin.get('email')?.touched)"
-        class="alert alert-danger py-1 mt-1">
-        <div *ngIf="formularioLogin.get('email')?.errors?.['required']">
-            El correo electronico es requerido.
-        </div>
-        <div *ngIf="formularioLogin.get('email')?.errors?.['email']">
-            El correo electronico debe ser valido.
-        </div>
-    </div>
-    <div class="field password">
-        <div class="icon"></div>
-        <input class="input" formControlName="password" id="password" type="password" placeholder="Contraseña" />
-    </div>
-    <div *ngIf="formularioLogin.get('password')?.invalid && (formularioLogin.get('password')?.dirty || formularioLogin.get('password')?.touched)"
-        class="alert alert-danger py-1 mt-1">
-        <div *ngIf="formularioLogin.get('password')?.errors?.['required']">
-            El campo contraseña es requerido.
-        </div>
-        <div *ngIf="formularioLogin.get('password')?.errors?.['minlength']">
-            El campo contraseña debe contener al menos 6 digitos.
-        </div>
-        <div *ngIf="formularioLogin.get('password')?.errors?.['invalid']">
-            El correo electronico o contraseña ingresados son incorrectos.
-        </div>
-    </div>
-    <button type="submit" class="button" id="submit" [disabled]="!formularioLogin.valid">INGRESAR<div
-            class="side-top-bottom"></div>
-        <div class="side-left-right"></div>
-    </button><small>Ingrese su correo electornico y contraseña</small>
-</form>
+<div class="bg-image container-fluid g-0 pt-5" [ngStyle]="{'background-image': 'url(./assets/bg-wallpaper.png)'}">
+    <section class="row g-0">
+        <form class="form" id="form" [formGroup]="formularioLogin" (ngSubmit)="ingresar()">
+            <div class="field email">
+                <div class="icon"></div>
+                <input class="input" formControlName="email" id="email" type="email" placeholder="Correo electronico" />
+            </div>
+            <div *ngIf="formularioLogin.get('email')?.invalid && (formularioLogin.get('email')?.dirty || formularioLogin.get('email')?.touched)"
+                class="alert alert-danger py-1 mt-1">
+                <div *ngIf="formularioLogin.get('email')?.errors?.['required']">
+                    El correo electronico es requerido.
+                </div>
+                <div *ngIf="formularioLogin.get('email')?.errors?.['email']">
+                    El correo electronico debe ser valido.
+                </div>
+            </div>
+            <div class="field password">
+                <div class="icon"></div>
+                <input class="input" formControlName="password" id="password" type="password"
+                    placeholder="Contraseña" />
+            </div>
+            <div *ngIf="formularioLogin.get('password')?.invalid && (formularioLogin.get('password')?.dirty || formularioLogin.get('password')?.touched)"
+                class="alert alert-danger py-1 mt-1">
+                <div *ngIf="formularioLogin.get('password')?.errors?.['required']">
+                    El campo contraseña es requerido.
+                </div>
+                <div *ngIf="formularioLogin.get('password')?.errors?.['minlength']">
+                    El campo contraseña debe contener al menos 6 digitos.
+                </div>
+                <div *ngIf="formularioLogin.get('password')?.errors?.['invalid']">
+                    El correo electronico o contraseña ingresados son incorrectos.
+                </div>
+            </div>
+            <button type="submit" class="button" id="submit" [disabled]="!formularioLogin.valid">INGRESAR<div
+                    class="side-top-bottom"></div>
+                <div class="side-left-right"></div>
+            </button><small>Ingrese su correo electornico y contraseña</small>
+        </form>
+    </section>
+</div>

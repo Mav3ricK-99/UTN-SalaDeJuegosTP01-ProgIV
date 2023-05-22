@@ -17,7 +17,7 @@ export class UsuarioService {
 
     this.afAuth.onAuthStateChanged((user) => {
       if (user && !this.usuarioIngresado) {
-
+        localStorage.setItem('usuarioIngresado', 'true');
         this.traerUsuario(user.uid).then(doc => {
           if (doc.exists()) {
             let data = doc.data();
@@ -89,6 +89,7 @@ export class UsuarioService {
   async cerrarSesionUsuario() {
     signOut(getAuth()).then(() => {
       this.usuarioIngresado = undefined;
+      localStorage.setItem('usuarioIngresado', 'false');
     });
   }
 

@@ -1,4 +1,5 @@
-<div class="container g-0 mt-5">
+<div class="bg-image container-fluid g-0 pt-5" [ngStyle]="{'background-image': 'url(./assets/bg-wallpaper.png)'}">
+
     <section class="row g-0 mb-3">
         <article class="col-12 align-self-center text-center">
             <h2 class="colorPrimaryAmarillo">Mayor - Menor<br></h2>
@@ -9,11 +10,11 @@
     </section>
     <section class="row g-0 mt-2">
         <ng-container *ngIf="carta.numero">
-            <ngb-alert *ngIf="resultado; else perdio" class="alertaJuego" [dismissible]="false">
+            <ngb-alert *ngIf="resultado; else perdio" class="alertaJuego text-center" [dismissible]="false">
                 <strong>Ganaste!</strong> Ganas un punto, si quieres volver a jugar elije otra opcion y una carta.
             </ngb-alert>
             <ng-template #perdio>
-                <ngb-alert class="alertaJuego" [dismissible]="false">
+                <ngb-alert class="alertaJuego text-center" [dismissible]="false">
                     <strong>Perdiste!</strong> Pierdes un punto, si quieres volver a jugar elije otra opcion y una
                     carta.
                 </ngb-alert>
@@ -27,6 +28,6 @@
             <app-carta [carta]="carta" />
         </div>
     </section>
-</div>
 
-<app-chat *ngIf="usuariosService.usuarioIngresado" />
+    <app-chat *ngIf="usuariosService.usuarioIngresado" />
+</div>

@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { guestsOnlyGuard } from './guards/guests-only.guard';
 import { RegistroComponent } from './components/registro/registro/registro.component';
 import { loggedUsersOnlyGuard } from './guards/logged-users-only.guard';
+import { SobreMiComponent } from './components/sobreMi/sobre-mi/sobre-mi.component';
 
 const routes: Routes = [
   {
@@ -14,9 +15,17 @@ const routes: Routes = [
     path: 'registro', component: RegistroComponent, canActivate: [guestsOnlyGuard]
   },
   {
+    path: 'sobre', component: SobreMiComponent
+  },
+  {
     path: 'mayor-menor',
     loadChildren: () => import('./modules/juegos/mayor-menor/mayor-menor.module').then(m => m.MayorMenorModule),
     canActivate: [loggedUsersOnlyGuard]
+  },
+  {
+    path: 'ahorcado',
+    loadChildren: () => import('./modules/juegos/ahorcado/ahorcado.module').then(m => m.AhorcadoModule),
+    /* canActivate: [loggedUsersOnlyGuard] */
   },
   {
     path: '', component: HomeComponent
