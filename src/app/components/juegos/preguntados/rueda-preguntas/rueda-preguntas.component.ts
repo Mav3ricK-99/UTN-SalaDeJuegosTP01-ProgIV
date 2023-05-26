@@ -19,7 +19,7 @@ export class RuedaPreguntasComponent implements OnInit {
     { color: "#bf0", nombre: Categoria.sport_and_leisure },
   ];
 
-  @Output() giroRuleta = new EventEmitter<Boolean>();
+  @Output() giroRuleta = new EventEmitter<String>();
 
   tot: number;
   elSpin: any;
@@ -132,10 +132,12 @@ export class RuedaPreguntasComponent implements OnInit {
     if (this.presionoGirar && !this.angVel) {
       this.terminoDeGirar = true;
       setTimeout(() => {
-        this.giroRuleta.emit(true);
+        let iCategoriaElegida = Object.values(Categoria).indexOf(sector.nombre as unknown as Categoria);
+        let categoriaElegida = Object.keys(Categoria)[iCategoriaElegida];
+        if(categoriaElegida != undefined) {
+          this.giroRuleta.emit(categoriaElegida);
+        }
       }, 3300, [this]);
-
-
     }
   };
 

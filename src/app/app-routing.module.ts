@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'preguntados',
     loadChildren: () => import('./modules/juegos/preguntados/preguntados.module').then(m => m.PreguntadosModule),
-    canActivate: [loggedUsersOnlyGuard]
+    /* canActivate: [loggedUsersOnlyGuard] */
   },
   {
     path: '', component: HomeComponent

@@ -3,15 +3,18 @@
     <section class="row g-0 mb-3">
         <article class="col-12 align-self-center text-center">
             <h2 class="colorPrimaryAmarillo">Preguntados (Ingles!)<br></h2>
-            <h4>Primero la primer carta del mazo <br></h4>
-            <h4>Despues adivina si la siguiente sera mayor o menor <br></h4>
-            <h5>Gana un punto por cada carta que adivines!</h5>
+            <h4>Lee la pregunta atentamente y elige sabiamente <br></h4>
+            <h5>Gana un punto por cada pregunta que adivines!</h5>
         </article>
     </section>
 
     <section class="row g-0 mb-3">
         <article class="col-12 align-self-center text-center">
             <app-rueda-preguntas (giroRuleta)="quitarRueda($event)" *ngIf="mostrarRueda" />
+            <ng-container class="col-6 text-center" *ngIf="mostrarPreguntas">
+                <app-manejador-preguntas class="col-6 text-center" (jugarDenuevo)="reiniciarJuego()"
+                    [preguntas]="preguntas" />
+            </ng-container>
         </article>
     </section>
 </div>

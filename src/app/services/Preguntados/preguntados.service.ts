@@ -14,17 +14,15 @@ export class PreguntadosService {
 
   }
 
-  getSetPreguntasConImagenes(cantPreguntas: number, categorias: string, dificultad: string, region: string): Observable<any> {
+  getSetPreguntasConImagenes(cantPreguntas: number, categorias: string, dificultad: string): Observable<any> {
     let getParams = "?";
     getParams = getParams.concat(
       `limit=${cantPreguntas}`,
       `&categories=${categorias}`,
       `&difficulties=${dificultad}`,
-      `&region=${region}`,
-      '&type=image_choice');
+      '&types=image_choice,text_choice');
 
-    console.log(getParams);
-
+    console.log(this.api_url + getParams)
     return this.http.get(this.api_url + getParams);
   }
 

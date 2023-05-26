@@ -1,0 +1,22 @@
+<div id="modal-pregunta" class="col-8 flex-column modal-pregunta p-3 py-3">
+    <div class="titulo px-4 py-2">
+        ¿{{pregunta.pregunta}}
+    </div>
+    <ng-container *ngIf="esConImagen; else opcionesTexto">
+        <div class="d-flex flex-wrap flex-row py-3 justify-content-around align-items-center">
+            <button type="button" class="opcion btn btn-dark px-1 mb-2" (click)="elegirOpcion(opcion, $event)"
+                *ngFor="let opcion of opcionesPreguntaConImagenes">
+                <img class="imagenOpcion" src="{{opcion.url}}" alt="{{opcion.descripcion}}" />
+            </button>
+        </div>
+
+    </ng-container>
+    <ng-template #opcionesTexto>
+        <div class="d-flex flex-column py-3 justify-content-around align-items-center">
+            <button type="button" class="opcion btn btn-dark px-2 mb-2" (click)="elegirOpcion(opcion, $event)"
+                *ngFor="let opcion of pregunta.opciones">
+                {{opcion}}
+            </button>
+        </div>
+    </ng-template>
+</div>
