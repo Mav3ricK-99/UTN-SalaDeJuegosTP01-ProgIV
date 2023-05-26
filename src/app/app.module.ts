@@ -22,6 +22,7 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { RegistroComponent } from './components/registro/registro/registro.component';
 import { ChatModule } from './modules/shared/chat/chat/chat.module';
+import { PreguntadosModule } from './modules/juegos/preguntados/preguntados.module';
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -44,6 +45,7 @@ registerLocaleData(localeEs);
     AngularFireAuthModule,
     FontAwesomeModule,
     ReactiveFormsModule,
+    PreguntadosModule,
     ChatModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: "es-ES" }, UsuarioService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

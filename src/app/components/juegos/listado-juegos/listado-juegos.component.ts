@@ -11,9 +11,14 @@ export class ListadoJuegosComponent {
     nombre: 'Mayor - Menor',
     ruta: '/mayor-menor',
     imagenPortada: './assets/cartasPoker.png',
-  },{
+  }, {
     nombre: 'El Ahorcado',
     ruta: '/ahorcado',
     imagenPortada: './assets/ahorcado.png',
-  },]
+  },
+  {
+    nombre: 'Preguntados (Ingles)',
+    ruta: '/preguntados',
+    imagenPortada: './assets/ahorcado.png',
+  }]
 }

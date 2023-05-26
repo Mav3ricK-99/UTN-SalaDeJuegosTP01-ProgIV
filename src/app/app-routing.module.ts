@@ -25,7 +25,12 @@ const routes: Routes = [
   {
     path: 'ahorcado',
     loadChildren: () => import('./modules/juegos/ahorcado/ahorcado.module').then(m => m.AhorcadoModule),
-    /* canActivate: [loggedUsersOnlyGuard] */
+    canActivate: [loggedUsersOnlyGuard]
+  },
+  {
+    path: 'preguntados',
+    loadChildren: () => import('./modules/juegos/preguntados/preguntados.module').then(m => m.PreguntadosModule),
+    canActivate: [loggedUsersOnlyGuard]
   },
   {
     path: '', component: HomeComponent
