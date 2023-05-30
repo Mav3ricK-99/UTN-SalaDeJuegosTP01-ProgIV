@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'app-carta',
@@ -8,15 +8,29 @@ import { Component, Input, OnChanges } from '@angular/core';
 export class CartaComponent implements OnChanges {
 
   @Input('carta') carta: Carta;
+  @Input('mostrarCarta') mostrarCarta: boolean;
+  @Input('width') width: number;
+
+  @Output() eligioCarta = new EventEmitter<Carta>();
 
   constructor() { }
 
   ngOnChanges(): void {
-    this.getImagenDeCarta();
+    if (!this.mostrarCarta) {
+      this.ocultarCarta();
+    } else {
+      this.carta.imagen = `assets/cartas-españolas/${this.carta.palo}${this.carta.numero}.png`;
+    }
   }
 
-  getImagenDeCarta() {
-    this.carta.imagen = `assets/cartas-españolas/${this.carta.palo}${this.carta.numero}.png`;
+  ocultarCarta() {
+    this.carta.imagen = `assets/cartas-españolas/mazo.png`;
+  }
+
+  elegirCarta() {
+    if (this.mostrarCarta) {
+      this.eligioCarta.emit(this.carta);
+    }
   }
 }
 

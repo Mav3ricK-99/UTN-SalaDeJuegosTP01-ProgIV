@@ -1,0 +1,23 @@
+<section class="d-flex flex-column">
+    <article class="seccionCartas w-100 bg-danger d-flex justify-content-center align-items-center">
+        <app-mano [mostrarMano]="false" [mano]="gameState.jugadores[0].mano" />
+    </article>
+    <article class="seccionCartas w-100 d-flex justify-content-center align-items-center bg-dark">
+        <app-mazo [width]="200" [mazo]="gameState.mazo" (pickeoCarta)="cartaElegidaDelMazo($event)"
+            [habilitarMazo]="esTurnoDelJugador && !eligioCartaDelMazo" />
+        <app-carta [width]="200" [carta]="gameState.getUltimaCartaDesechada()" [mostrarCarta]="true" />
+    </article>
+    <article class="seccionCartas w-100 bg-info d-flex justify-content-center align-items-center pt-2">
+        <div class="d-flex flex-column align-items-center">
+            <div class="flex-row">
+                <button [ngClass]="{'disabled': (esTurnoDelJugador && eligioCartaDelMazo) == false}"
+                    class="btn btn-success pt-2" (click)="pasarTurno()">PASO</button>
+                <button
+                    [ngClass]="{'disabled': (esTurnoDelJugador && gameState.jugadores[1].juegaAnteultimaCarta()) == false}"
+                    class="btn btn-success pt-2" (click)="cantarUltimaCarta()">ULTIMA CARTA</button>
+            </div>
+            <app-mano [puedeElegirCarta]="esTurnoDelJugador" (eligioCarta)="jugadorEligeCartaSuMano($event)"
+                [mostrarMano]="true" [mano]="gameState.jugadores[1].mano" />
+        </div>
+    </article>
+</section>

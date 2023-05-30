@@ -9,23 +9,26 @@
         </article>
     </section>
     <section class="row g-0 mt-2">
-        <ng-container *ngIf="carta.numero">
+        <ng-container *ngIf="carta.numero && !primerCarta">
             <ngb-alert *ngIf="resultado; else perdio" class="alertaJuego text-center" [dismissible]="false">
-                <strong>Ganaste!</strong> Ganas un punto, si quieres volver a jugar elije otra opcion y una carta.
+                <strong>Ganaste!</strong> Ganas {{cartaAnterior.numero}} punto, si quieres volver a jugar elije otra opcion y
+                una carta.
             </ngb-alert>
             <ng-template #perdio>
                 <ngb-alert class="alertaJuego text-center" [dismissible]="false">
-                    <strong>Perdiste!</strong> Pierdes un punto, si quieres volver a jugar elije otra opcion y una
+                    <strong>Perdiste!</strong> Pierdes {{cartaAnterior.numero}}, si quieres volver a jugar elije otra opcion y
+                    una
                     carta.
                 </ngb-alert>
             </ng-template>
         </ng-container>
         <div class="d-flex justify-content-around">
-            <app-mazo (pickeoCarta)="setUltimaCarta($event)" [elijioOpcion]="elijioOpcion" />
+            <app-mazo [width]="300" [mazo]="mazo" (pickeoCarta)="setUltimaCarta($event)"
+                [habilitarMazo]="elijioOpcion" />
             <ng-container *ngIf="carta.numero > 0">
                 <app-controles (elijioOpcion)="setOpcion($event)" />
             </ng-container>
-            <app-carta [carta]="carta" />
+            <app-carta [width]="300" [mostrarCarta]="true" [carta]="carta" />
         </div>
     </section>
 

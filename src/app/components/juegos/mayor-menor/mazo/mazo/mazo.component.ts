@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Carta, palos } from '../../carta/carta/carta.component';
+import { Mazo } from 'src/app/classes/juegos/mazo';
 
 @Component({
   selector: 'app-mazo',
@@ -10,20 +11,15 @@ export class MazoComponent {
 
   @Output() pickeoCarta = new EventEmitter<Carta>();
 
-  @Input('elijioOpcion') elijioOpcion: boolean;
+  @Input('habilitarMazo') habilitarMazo: boolean;
 
-  constructor() { }
+  @Input('mazo') mazo: Mazo;
+  @Input('width') width: number;
 
   elejirCartaDelMazo() {
-    if (this.elijioOpcion == true) {
-      let numeroCarta = Math.floor(Math.random() * (10 - 1) + 1);
-      let paloCarta = Math.floor(Math.random() * (3 - 0) + 0);
+    if (this.habilitarMazo == true) {
+      let cartaElejida: Carta = this.mazo.tomarCarta();
 
-      let cartaElejida: Carta = {
-        numero: numeroCarta,
-        palo: palos[paloCarta],
-        imagen: undefined,
-      }
       this.pickeoCarta.emit(cartaElejida);
     }
   }

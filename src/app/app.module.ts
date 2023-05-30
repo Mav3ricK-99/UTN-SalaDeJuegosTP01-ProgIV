@@ -23,6 +23,8 @@ import { registerLocaleData } from '@angular/common';
 import { RegistroComponent } from './components/registro/registro/registro.component';
 import { ChatModule } from './modules/shared/chat/chat/chat.module';
 import { PreguntadosModule } from './modules/juegos/preguntados/preguntados.module';
+import { ManoComponent } from './components/juegos/jodete/mano/mano.component';
+import { JodeteModule } from './modules/juegos/jodete/jodete.module';
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -46,7 +48,8 @@ registerLocaleData(localeEs);
     FontAwesomeModule,
     ReactiveFormsModule,
     PreguntadosModule,
-    ChatModule
+    JodeteModule,
+    ChatModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: "es-ES" }, UsuarioService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]

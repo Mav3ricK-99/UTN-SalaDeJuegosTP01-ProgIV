@@ -20,5 +20,10 @@ export class ListadoJuegosComponent {
     nombre: 'Preguntados (Ingles)',
     ruta: '/preguntados',
     imagenPortada: './assets/ahorcado.png',
+  },
+  {
+    nombre: 'Jodete (El UNO)',
+    ruta: '/jodete',
+    imagenPortada: './assets/jodete-naipes.jpg',
   }]
 }

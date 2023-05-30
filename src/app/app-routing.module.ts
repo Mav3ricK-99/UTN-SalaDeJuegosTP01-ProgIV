@@ -33,6 +33,11 @@ const routes: Routes = [
     /* canActivate: [loggedUsersOnlyGuard] */
   },
   {
+    path: 'jodete',
+    loadChildren: () => import('./modules/juegos/jodete/jodete.module').then(m => m.JodeteModule),
+    /* canActivate: [loggedUsersOnlyGuard] */
+  },
+  {
     path: '', component: HomeComponent
   }];
 

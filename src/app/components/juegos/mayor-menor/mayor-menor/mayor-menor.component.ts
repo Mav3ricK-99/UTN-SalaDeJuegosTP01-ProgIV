@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Carta } from '../carta/carta/carta.component';
 import { UsuarioService } from 'src/app/services/Usuario/usuario.service';
+import { Mazo } from 'src/app/classes/juegos/mazo';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -9,16 +10,23 @@ import { UsuarioService } from 'src/app/services/Usuario/usuario.service';
 })
 export class MayorMenorComponent {
 
+  mazo: Mazo;
   carta: Carta;
   cartaAnterior: Carta;
+
+  puntosTotales: number;
   seraMayor: boolean;
   elijioOpcion: boolean;
+  primerCarta: boolean;
 
   resultado: boolean;
 
   constructor(public usuariosService: UsuarioService) {
+    this.mazo = new Mazo();
+    this.puntosTotales = 0;
     this.seraMayor = false;
     this.elijioOpcion = true;
+    this.primerCarta = true;
     this.carta = {
       numero: 0,
       palo: '?',
@@ -34,6 +42,9 @@ export class MayorMenorComponent {
   setUltimaCarta($event: Carta) {
     this.cartaAnterior = this.carta;
     this.carta = $event;
+    if (this.cartaAnterior.numero !== 0) {
+      this.primerCarta = false;
+    }
     this.resultadoJuego();
     this.elijioOpcion = false;
   }
@@ -49,10 +60,12 @@ export class MayorMenorComponent {
     if (this.seraMayor) {
       if (this.carta.numero > this.cartaAnterior.numero) {
         this.resultado = true;
+        this.puntosTotales += this.carta.numero;
       }
     } else {
       if (this.carta.numero < this.cartaAnterior.numero) {
         this.resultado = true;
+        this.puntosTotales -= this.carta.numero;
       }
     }
 

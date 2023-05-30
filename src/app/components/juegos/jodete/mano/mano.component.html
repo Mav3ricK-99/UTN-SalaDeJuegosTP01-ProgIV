@@ -1,0 +1,5 @@
+<div class="mano d-flex justify-content-center align-items-center">
+    <ng-container *ngFor="let carta of mano">
+        <app-carta (eligioCarta)="eligioCartaDeLaMano($event)" [width]="205" [carta]="carta" [mostrarCarta]="mostrarMano"/>
+    </ng-container>
+</div>
