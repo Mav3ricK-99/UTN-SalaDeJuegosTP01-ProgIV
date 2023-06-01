@@ -14,16 +14,16 @@ export class ListadoJuegosComponent {
   }, {
     nombre: 'El Ahorcado',
     ruta: '/ahorcado',
-    imagenPortada: './assets/ahorcado.png',
+    imagenPortada: './assets/ahorcado.jpg',
   },
   {
-    nombre: 'Preguntados (Ingles)',
+    nombre: 'Preguntados',
     ruta: '/preguntados',
-    imagenPortada: './assets/ahorcado.png',
+    imagenPortada: './assets/preguntados.avif',
   },
   {
     nombre: 'Jodete (El UNO)',
     ruta: '/jodete',
-    imagenPortada: './assets/jodete-naipes.jpg',
+    imagenPortada: './assets/jodete.jpeg',
   }]
 }
